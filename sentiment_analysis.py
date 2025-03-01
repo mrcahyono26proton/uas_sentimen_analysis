@@ -193,27 +193,3 @@ joblib.dump(svm_model, "svm_sentiment_model.pkl")
 joblib.dump(tfidf_vectorizer, "tfidf_vectorizer.pkl")
 
 print("Model dan TF-IDF Vectorizer berhasil disimpan!")
-
-!jupyter nbconvert --to script sentiment_analysis.ipynb
-
-# Commented out IPython magic to ensure Python compatibility.
-from google.colab import auth
-auth.authenticate_user()
-
-# Ganti dengan nama repository GitHub kamu
-repository = "mrcahyono26proton/uas_sentimen_analysis"
-
-# Konfigurasi Git
-!git config --global user.email "mrcahyono26@proton.me"
-!git config --global user.name "mrcahyono26proton"
-
-# Tambahkan file ke GitHub
-!git clone https://github.com/{repository}.git
-# %cd uas_sentimen_analysis
-!cp /content/svm_sentiment_model.pkl .
-!cp /content/tfidf_vectorizer.pkl .
-!git add .
-!git commit -m "Upload trained model and vectorizer"
-!git push origin main
-
-!jupyter nbconvert --to script Sentiment-analysis.ipynb
